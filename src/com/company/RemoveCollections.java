@@ -6,18 +6,15 @@ import java.util.LinkedList;
 import java.util.TreeSet;
 
 public class RemoveCollections {
+    CountAlgorithm countAlgorithm = new CountAlgorithm();
+
     ArrayList<Integer> arrayList = new ArrayList<>();
     LinkedList<Integer> linkedList = new LinkedList<>();
     HashSet<Integer> hashSet = new HashSet<>();
     TreeSet<Integer> treeSet = new TreeSet<>();
-    private int maxIteration = 1024000;
-    private int startElement = 600000;
-    private long iterations10K = 2560;
-    private long iterations100K = 25600;
-    private long iterations1000K = 256000;
 
     public void putToCollectionsRemove() {
-        for (int i = 0; i < maxIteration; i++) {
+        for (int i = 0; i < countAlgorithm.maxIteration; i++) {
             arrayList.add(i);
             linkedList.add(i);
             hashSet.add(i);
@@ -26,114 +23,46 @@ public class RemoveCollections {
     }
 
     public void removeArrayList() {
-        long startTime = 0;
-        long finishTime10K = 0;
-        long finishTime100K = 0;
-        long finishTime1000K = 0;
         for (int j = 0; j < 10; j++) {
-            for (int i = 0; i < 1000; i++) {
-                if (i == startElement) {
-                    startTime = System.nanoTime();
-                }
-                if (i == startElement + iterations10K) {
-                    finishTime10K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations100K) {
-                    finishTime100K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations1000K) {
-                    finishTime1000K = System.nanoTime() - startTime;
-                }
+            for (int i = 0; i < 100; i++) {
+                countAlgorithm.timeCount(i);
                 arrayList.remove(arrayList.size() / 2);
             }
         }
-        System.out.println("ArrayList:");
-        System.out.println("Time remove10K = " + (finishTime10K / 100));
-        System.out.println("Time remove100K = " + (finishTime100K / 100));
-        System.out.println("Time remove1000K = " + (finishTime1000K / 100));
+        System.out.println("ArrayList (remove method):");
+        countAlgorithm.writrTime();
     }
 
     public void removeLinkedList() {
-        long startTime = 0;
-        long finishTime10K = 0;
-        long finishTime100K = 0;
-        long finishTime1000K = 0;
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 100; i++) {
-                if (i == startElement) {
-                    startTime = System.nanoTime();
-                }
-                if (i == startElement + iterations10K) {
-                    finishTime10K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations100K) {
-                    finishTime100K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations1000K) {
-                    finishTime1000K = System.nanoTime() - startTime;
-                }
+                countAlgorithm.timeCount(i);
                 linkedList.remove(linkedList.size() / 2);
             }
         }
-        System.out.println("LinkedList:");
-        System.out.println("Time remove10K = " + (finishTime10K / 100));
-        System.out.println("Time remove100K = " + (finishTime100K / 100));
-        System.out.println("Time remove1000K = " + (finishTime1000K / 100));
+        System.out.println("LinkedList (remove method):");
+        countAlgorithm.writrTime();
     }
 
     public void removeHashSet() {
-        long startTime = 0;
-        long finishTime10K = 0;
-        long finishTime100K = 0;
-        long finishTime1000K = 0;
         for (int j = 0; j < 10; j++) {
-            for (int i = 0; i < maxIteration; i++) {
-                if (i == startElement) {
-                    startTime = System.nanoTime();
-                }
-                if (i == startElement + iterations10K) {
-                    finishTime10K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations100K) {
-                    finishTime100K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations1000K) {
-                    finishTime1000K = System.nanoTime() - startTime;
-                }
+            for (int i = 0; i < 100; i++) {
+                countAlgorithm.timeCount(i);
                 hashSet.remove(hashSet.size() / 2);
             }
         }
-        System.out.println("HashSet:");
-        System.out.println("Time remove10K = " + (finishTime10K / 100));
-        System.out.println("Time remove100K = " + (finishTime100K / 100));
-        System.out.println("Time remove1000K = " + (finishTime1000K / 100));
+        System.out.println("HashSet (remove method):");
+        countAlgorithm.writrTime();
     }
 
     public void removeTreeSet() {
-        long startTime = 0;
-        long finishTime10K = 0;
-        long finishTime100K = 0;
-        long finishTime1000K = 0;
         for (int j = 0; j < 10; j++) {
-            for (int i = 0; i < maxIteration; i++) {
-                if (i == startElement) {
-                    startTime = System.nanoTime();
-                }
-                if (i == startElement + iterations10K) {
-                    finishTime10K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations100K) {
-                    finishTime100K = System.nanoTime() - startTime;
-                }
-                if (i == startElement + iterations1000K) {
-                    finishTime1000K = System.nanoTime() - startTime;
-                }
+            for (int i = 0; i < 100; i++) {
+                countAlgorithm.timeCount(i);
                 treeSet.remove(treeSet.size() / 2);
             }
         }
-        System.out.println("TreeSet:");
-        System.out.println("Time remove10K = " + (finishTime10K / 100));
-        System.out.println("Time remove100K = " + (finishTime100K / 100));
-        System.out.println("Time remove1000K = " + (finishTime1000K / 100));
+        System.out.println("TreeSet (remove method):");
+        countAlgorithm.writrTime();
     }
 }

@@ -1,58 +1,56 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.TreeSet;
+import java.util.*;
 
-public class AddCollections {
+public class PopulateCollections {
+    Random rand = new Random();
     CountAlgorithm countAlgorithm = new CountAlgorithm();
 
-    public void addArrayList() {
+    public void randomAddArrayList() {
         for (int j = 0; j < 10; j++) {
             ArrayList<Integer> arrayList = new ArrayList<>();
             for (int i = 0; i < countAlgorithm.maxIteration; i++) {
                 countAlgorithm.timeCount(i);
-                arrayList.add(i);
+                arrayList.add(new Integer(rand.nextInt(100)));
             }
         }
-        System.out.println("ArrayList (add method):");
+        System.out.println("ArrayList (populate(randomAdd) method):");
         countAlgorithm.writrTime();
     }
 
-    public void addLinkedList() {
+    public void randomAddLinkedList() {
         for (int j = 0; j < 10; j++) {
             LinkedList<Integer> linkedList = new LinkedList<>();
             for (int i = 0; i < countAlgorithm.maxIteration; i++) {
                 countAlgorithm.timeCount(i);
-                linkedList.add(i);
+                linkedList.add(new Integer(rand.nextInt(100)));
             }
         }
-        System.out.println("LinkedList (add method):");
+        System.out.println("LinkedList (populate(randomAdd) method):");
         countAlgorithm.writrTime();
     }
 
-    public void addHashSet() {
+    public void randomAddHashSet() {
         for (int j = 0; j < 10; j++) {
             HashSet<Integer> hashSet = new HashSet<>();
             for (int i = 0; i < countAlgorithm.maxIteration; i++) {
                 countAlgorithm.timeCount(i);
-                hashSet.add(i);
+                hashSet.add(new Integer(rand.nextInt(100)));
             }
         }
-        System.out.println("HashSet (add method):");
+        System.out.println("HashSet (populate(randomAdd) method):");
         countAlgorithm.writrTime();
     }
 
-    public void addTreeSet() {
+    public void randomAddTreeSet() {
         for (int j = 0; j < 10; j++) {
             TreeSet<Integer> treeSet = new TreeSet<>();
             for (int i = 0; i < countAlgorithm.maxIteration; i++) {
                 countAlgorithm.timeCount(i);
-                treeSet.add(i);
+                treeSet.add(new Integer(rand.nextInt(100)));
             }
         }
-        System.out.println("TreeSet (add method):");
+        System.out.println("TreeSet (populate(randomAdd) method):");
         countAlgorithm.writrTime();
     }
 }
