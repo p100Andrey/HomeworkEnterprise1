@@ -1,4 +1,4 @@
-package com.company;
+package com.company.main;
 
 import java.io.*;
 
@@ -7,9 +7,6 @@ public class CsvClass {
         PrintWriter out = null;
 
         try {
-//            if (file.exists()) {
-//                file.delete();
-//             }
             if (!file.exists()) {
                 System.out.println("The file is created");
                 file.createNewFile();
@@ -39,5 +36,18 @@ public class CsvClass {
             e.printStackTrace();
         }
         return sb.toString();
+    }
+
+    static void cleanCsvFile(File file){
+        if (file.exists()) {
+            PrintWriter out = null;
+            try {
+                out = new PrintWriter(file);
+                out.print("");
+                out.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
