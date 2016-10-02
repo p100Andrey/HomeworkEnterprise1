@@ -14,13 +14,23 @@ public class ListIteratorAddCollectionsTest {
     }
 
     @Test
-    public void testPutToCollectionsListIteratorAdd() throws Exception {
-        assertTrue(listIteratorAddCollections.putToCollectionsListIteratorAdd());
+    public void testListIteratorAddToLists() throws Exception {
+        listIteratorAddCollections.putToCollectionsListIteratorAdd();
+        listIteratorAddCollections.listIteratorAddToLists();
+        assertEquals(112640, listIteratorAddCollections.arrayList.size());
+        assertEquals(112640, listIteratorAddCollections.linkedList.size());
     }
 
     @Test
-    public void testListIteratorAddToLists() throws Exception {
+    public void testPutToCollectionsListIteratorAdd() throws Exception {
         listIteratorAddCollections.putToCollectionsListIteratorAdd();
-        assertTrue(listIteratorAddCollections.listIteratorAddToLists());
+        assertEquals(10240, listIteratorAddCollections.arrayList.size());
+        assertEquals(10240, listIteratorAddCollections.linkedList.size());
+    }
+
+    @Test
+    public void testPutToCollectionsListIteratorZero() throws Exception {
+        assertEquals(0, listIteratorAddCollections.arrayList.size());
+        assertEquals(0, listIteratorAddCollections.linkedList.size());
     }
 }

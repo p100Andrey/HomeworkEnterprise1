@@ -7,21 +7,24 @@ import static org.junit.Assert.*;
 
 public class ContainsCollectionsTest {
 
-    ContainsCollections containsCollections;
-
-    @Before
-    public void testBefore() {
-        containsCollections = new ContainsCollections();
+    @Test
+    public void testContainsInCollectionsPositive() throws Exception {
+        ContainsCollections containsCollections = new ContainsCollections();
+        containsCollections.putToCollectionsContains();
+        containsCollections.containsInCollections();
+        assertEquals(10240, containsCollections.arrayList.size());
+        assertEquals(10240, containsCollections.linkedList.size());
+        assertEquals(10240, containsCollections.hashSet.size());
+        assertEquals(10240, containsCollections.treeSet.size());
     }
 
     @Test
-    public void testPutToCollectionsContains() throws Exception {
-        assertTrue(containsCollections.putToCollectionsContains());
-    }
-
-    @Test
-    public void testContainsInCollections() throws Exception {
-        assertTrue(containsCollections.containsInCollections());
+    public void testContainsInCollectionsZero() throws Exception {
+        ContainsCollections containsCollections = new ContainsCollections();
+        assertEquals(0, containsCollections.arrayList.size());
+        assertEquals(0, containsCollections.linkedList.size());
+        assertEquals(0, containsCollections.hashSet.size());
+        assertEquals(0, containsCollections.treeSet.size());
     }
 
 }

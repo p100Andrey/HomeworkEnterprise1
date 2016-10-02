@@ -6,19 +6,19 @@ import static junit.framework.Assert.fail;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
-public class CountAlgorithmTest {
+public class CounterTest {
 
     @Test
     public void testTimeCount() throws Exception {
-        CountAlgorithm countAlgorithm = new CountAlgorithm();
-        countAlgorithm.timeCount(0);
+        Counter counter = new Counter();
+        counter.timeCount(0);
         assertTrue(true);
     }
 
     @Test
     public void testWriteTime() throws Exception {
-        CountAlgorithm countAlgorithm = new CountAlgorithm();
-        countAlgorithm.writeTime();
+        Counter counter = new Counter();
+        counter.writeTime();
         assertTrue(true);
     }
 

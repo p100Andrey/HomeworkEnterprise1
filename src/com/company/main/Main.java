@@ -3,15 +3,13 @@ package com.company.main;
 import com.company.methods.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
 public class Main {
     static File file = new File("AddCollections.csv");
 
     public static void main(String[] args) {
-        CsvClass csvClass = new CsvClass();
-        csvClass.cleanCsvFile(file);
+        CsvWriter csvWriter = new CsvWriter();
+        csvWriter.cleanCsvFile(file);
 
         AddCollections addCollections = new AddCollections();
         addCollections.addToCollections();

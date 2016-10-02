@@ -1,11 +1,11 @@
 package com.company.methods;
 
-import com.company.main.CountAlgorithm;
+import com.company.main.Counter;
 
 import java.util.*;
 
 public class ContainsCollections {
-    CountAlgorithm countAlgorithm = new CountAlgorithm();
+    Counter counter = new Counter();
 
     ArrayList<Integer> arrayList = new ArrayList<>();
     LinkedList<Integer> linkedList = new LinkedList<>();
@@ -13,7 +13,7 @@ public class ContainsCollections {
     TreeSet<Integer> treeSet = new TreeSet<>();
 
     public boolean putToCollectionsContains() {
-        for (int i = 0; i < countAlgorithm.maxIteration; i++) {
+        for (int i = 0; i < Counter.MAX_ITERATION; i++) {
             arrayList.add(i);
             linkedList.add(i);
             hashSet.add(i);
@@ -23,38 +23,38 @@ public class ContainsCollections {
     }
 
     public boolean containsInCollections() {
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
             timeMeasureContains(arrayList);
         }
         System.out.println("ArrayList (contains method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
             timeMeasureContains(linkedList);
         }
         System.out.println("LinkedList (contains method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
             timeMeasureContains(hashSet);
         }
         System.out.println("HashSet (contains method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
             timeMeasureContains(treeSet);
         }
         System.out.println("TreeSet (contains method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
         return true;
     }
 
     private void timeMeasureContains(Collection<Integer> enyCollection) {
-        countAlgorithm = new CountAlgorithm();
-        for (int i = 0; i < countAlgorithm.maxIteration; i++) {
-            countAlgorithm.timeCount(i);
-            boolean tempEnyCollection = enyCollection.contains(i);
+        counter = new Counter();
+        for (int i = 0; i < Counter.MAX_ITERATION; i++) {
+            counter.timeCount(i);
+            enyCollection.contains(i);
         }
     }
 }

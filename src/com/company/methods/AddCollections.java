@@ -1,48 +1,52 @@
 package com.company.methods;
 
-import com.company.main.CountAlgorithm;
+import com.company.main.Counter;
 
 import java.util.*;
 
 public class AddCollections {
-    CountAlgorithm countAlgorithm;
+    Counter counter;
+    Collection<Integer> arrayList;
+    Collection<Integer> linkedList;
+    Collection<Integer> hashSet;
+    Collection<Integer> treeSet;
 
     public boolean addToCollections() {
-        for (int j = 0; j < 10; j++) {
-            Collection<Integer> arrayList = new ArrayList<>();
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
+            arrayList = new ArrayList<>();
             timeMeasureAdd(arrayList);
         }
         System.out.println("ArrayList (add method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
-            Collection<Integer> linkedList = new LinkedList<>();
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
+            linkedList = new LinkedList<>();
             timeMeasureAdd(linkedList);
         }
         System.out.println("LinkedList (add method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
-            Collection<Integer> hashSet = new HashSet<>();
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
+            hashSet = new HashSet<>();
             timeMeasureAdd(hashSet);
         }
         System.out.println("HashSet (add method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
-        for (int j = 0; j < 10; j++) {
-            Collection<Integer> treeSet = new TreeSet<>();
+        for (int j = 0; j < Counter.ITERATIONS_NUMBER; j++) {
+            treeSet = new TreeSet<>();
             timeMeasureAdd(treeSet);
         }
         System.out.println("TreeSet (add method):");
-        countAlgorithm.writeTime();
+        counter.writeTime();
 
         return true;
     }
 
     private void timeMeasureAdd(Collection<Integer> enyCollection){
-        countAlgorithm = new CountAlgorithm();
-        for (int i = 0; i < countAlgorithm.maxIteration; i++) {
-            countAlgorithm.timeCount(i);
+        counter = new Counter();
+        for (int i = 0; i < Counter.MAX_ITERATION; i++) {
+            counter.timeCount(i);
             enyCollection.add(i);
         }
     }

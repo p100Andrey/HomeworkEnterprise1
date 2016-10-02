@@ -1,14 +1,15 @@
 package com.company.main;
 
-public class CountAlgorithm {
+public class Counter {
 
-    CsvClass csvClass = new CsvClass();
+    CsvWriter csvWriter = new CsvWriter();
 
-    public int maxIteration = 10240;
-    private int startElement = 600;
-    private long iterations10K = 25;
-    private long iterations100K = 256;
-    private long iterations1000K = 2560;
+    public static final int ITERATIONS_NUMBER = 10;
+    public static final int MAX_ITERATION = 10240;
+    private final int startElement = 600;
+    private final long iterations10K = 25;
+    private final long iterations100K = 256;
+    private final long iterations1000K = 2560;
     private long startTime = 0;
     private long finishTime10K = 0;
     private long finishTime100K = 0;
@@ -73,7 +74,7 @@ public class CountAlgorithm {
 
     public void writeTime() {
         outPrintTime(finishTime10K, finishTime100K, finishTime1000K);
-        csvClass.write(Main.file, String.valueOf(finishTime10K) + ';' + String.valueOf(finishTime100K) + ';'
+        csvWriter.write(Main.file, String.valueOf(finishTime10K) + ';' + String.valueOf(finishTime100K) + ';'
                 + String.valueOf(finishTime1000K) + ';' + "\n");
     }
 }

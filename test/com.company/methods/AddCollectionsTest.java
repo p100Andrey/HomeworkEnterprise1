@@ -6,8 +6,22 @@ import static org.junit.Assert.*;
 
 public class AddCollectionsTest {
     @Test
-    public void testAddToCollectionsFalse() throws Exception {
+    public void testAddToCollectionsPositive() throws Exception {
         AddCollections addCollections = new AddCollections();
-        assertTrue(addCollections.addToCollections());
+        addCollections.addToCollections();
+        assertEquals(10240, addCollections.arrayList.size());
+        assertEquals(10240, addCollections.linkedList.size());
+        assertEquals(10240, addCollections.hashSet.size());
+        assertEquals(10240, addCollections.treeSet.size());
     }
+
+    @Test (expected = NullPointerException.class)
+    public void testAddToCollectionsNull() throws Exception {
+        AddCollections addCollections = new AddCollections();
+        assertEquals(null, addCollections.arrayList.size());
+        assertEquals(null, addCollections.linkedList.size());
+        assertEquals(null, addCollections.hashSet.size());
+        assertEquals(null, addCollections.treeSet.size());
+    }
+
 }

@@ -8,22 +8,21 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class GetCollectionsTest {
-    GetCollections getCollections;
-
-    @Before
-    public void setUpBeforeClass() {
-        getCollections = new GetCollections();
-    }
 
     @Test
-    public void testPutToCollections() throws Exception {
-        assertTrue(getCollections.putToCollections());
-    }
-
-    @Test
-    public void testGetToCollections() throws Exception {
+    public void testGetToCollectionsPositive() throws Exception {
+        GetCollections getCollections = new GetCollections();
         getCollections.putToCollections();
-        assertTrue(getCollections.getToCollections());
+        getCollections.getToCollections();
+        assertEquals(10240, getCollections.arrayList.size());
+        assertEquals(10240, getCollections.linkedList.size());
+    }
+
+    @Test
+    public void testGetToCollectionsZero() throws Exception {
+        GetCollections getCollections = new GetCollections();
+        assertEquals(0, getCollections.arrayList.size());
+        assertEquals(0, getCollections.linkedList.size());
     }
 
 }
